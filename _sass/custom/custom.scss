@@ -1,12 +1,25 @@
 .splash .header-overlay {
-    background-size: cover; /* Ensures the image covers the width and height */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents tiling */
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: url('/assets/images/header.png') center center / cover no-repeat;
+    background-color: #000; /* Fallback color */
   }
   
-  .splash .header-overlay img {
-    width: 100%; /* Make the image span the full width */
-    height: auto; /* Maintain the aspect ratio */
-    object-fit: cover; /* Ensures the image doesn't distort */
+  @media (max-aspect-ratio: 16/9) {
+    /* For narrow screens, ensure the full image width is visible */
+    .splash .header-overlay {
+      background-size: contain;
+    }
+  }  
+  
+  .splash .header-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 0 20px; /* Add padding for narrow screens */
   }
   
